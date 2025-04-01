@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To My Dearest Aarya</title>
+    <style>
+        *,
+        *::after,
+        *::before {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-bg: linear-gradient(to top,rgb(14, 1, 11),rgb(238, 83, 181));
+            --color-pot: linear-gradient(to bottom, #f5e8d3 10%, #d4a373 90%);
+            --color-soil: linear-gradient(to bottom, #5c4033, #3c2f2f);
+        }
+
+        body {
+            background-image: var(--color-bg);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            height: 100vh;
+        }
+
+        .title {
+            position: absolute;
+            top: 9vmin;
+            font-family: 'Great Vibes', fantasy;
+            font-size: 5vmin;
+            color:rgb(178, 185, 85);
+            text-shadow: 0 0 10px rgba(12, 12, 1, 0.46), 0 0 20px rgba(14, 10, 3, 0.6);
+            animation: fadeIn 4s ease-in-out forwards;
+            display:flex;
+            align-items: center;
+            gap: 2vmin;
+        }
+
+        .flower {
+            position: relative;
+        }
+
+        .flower__pot {
+            width: 30vmin;
+            height: 20vmin;
+            background-image: var(--color-pot);
+            clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
+            position: relative;
+            border-radius: 2vmin;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .flower__pot::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            width: 80%;
+            height: 3vmin;
+            background-image: var(--color-soil);
+            border-radius: 1vmin;
+        }
+
+        .flower__pot::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 70%;
+            height: 50%;
+            transform: translate(-50%, -50%);
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.1),
+                rgba(255, 255, 255, 0.1) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            opacity: 0.5;
+        }
+
+        .flower-pp {
+            position: absolute;
+            left: 45%;
+            bottom: 3vmin;
+        }
+
+        .flower-pp--2 {
+            left: 55%;
+            bottom: 6%;
+            transform-origin: 10% left;
+            transform: rotate(25deg);
+        }
+
+        .flower-pp--3 {
+            left: 35%;
+            bottom: 6%;
+            transform-origin: 10% left;
+            transform: rotate(-15deg);
+        }
+
+        .flower-pp--4 {
+            left: 25%;
+            bottom: 5%;
+            transform-origin: 10% left;
+            transform: rotate(-5deg);
+        }
+
+        .flower-pp--5 {
+            left: 65%;
+            bottom: 7%;
+            transform-origin: 10% left;
+            transform: rotate(30deg);
+        }
+
+        .flower-pp--3 .flower_l,
+        .flower-pp--4 .flower_l,
+        .flower-pp--5 .flower_l {
+            height: 48vmin;
+            background-image: linear-gradient(to top, #1a3c6e, #156565);
+        }
+
+        .flower-pp--3 .flower_l::after,
+        .flower-pp--4 .flower_l::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 6vmin;
+            height: 6vmin;
+            transform: translate(-69%, -30%) rotate(-5deg);
+            border-radius: 10vmin 10vmin 0 0;
+            border: 2vmin solid #156565;
+            border-bottom: transparent;
+            border-left: transparent;
+        }
+
+        .flower-pp--3 .flower_l::before,
+        .flower-pp--5 .flower_l::before {
+            content: '';
+            position: absolute;
+            left: -40%;
+            top: -1%;
+            width: 6vmin;
+            height: 2vmin;
+            transform-origin: right;
+            transform: translate(-100%, -80%) rotate(-20deg);
+            background-color: #156565;
+            border-radius: 2vmin;
+        }
+
+        .flower-pp--2 .flower_l,
+        .flower-pp--4 .flower_l {
+            height: 45vmin;
+        }
+
+        .flower-pp--2 .f {
+            transform: translateX(-50%) rotate(20deg);
+        }
+
+        .flower-pp--3 .f {
+            transform: translate(-350%, -50%) rotate(-120deg);
+        }
+
+        .flower-pp--4 .f {
+            transform: translateX(-50%) rotate(-10deg);
+        }
+
+        .flower-pp--5 .f {
+            transform: translateX(-50%) rotate(35deg);
+        }
+
+        .flower_l {
+            width: 2vmin;
+            height: 56vmin;
+            background-image: linear-gradient(to left top, #82fdff 20%, #1a3c6e, #156565);
+            border-radius: 4vmin;
+        }
+
+        .f {
+            position: absolute;
+            top: 1vmin;
+            left: 50%;
+            transform: translateX(-50%) rotate(-10deg);
+            width: 2vmin;
+            height: 2vmin;
+        }
+
+        .leaf {
+            position: absolute;
+            left: 50%;
+            bottom: 2vmin;
+            transform: translateX(-50%);
+            width: 5vmin;
+            height: 14vmin;
+            background-image: linear-gradient(to bottom, #ffcc70, #ff8c5a, #2a1e3a 99%);
+            clip-path: ellipse(50% 50% at 50% 50%);
+            transform-origin: center bottom;
+            animation: open-flower 2s 1s backwards;
+        }
+
+        .leaf--1 {
+            width: 10vmin;
+            height: 12vmin;
+            bottom: 3vmin;
+            border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+            background-image: linear-gradient(to bottom, #ff6f61, #e63946);
+            animation: open-flowe--middle 1.4s 1s backwards;
+        }
+
+        .leaf--2 { transform: translateX(-50%) rotate(-30deg); }
+        .leaf--3 { transform: translateX(-50%) rotate(-50deg); }
+        .leaf--4 { transform: translateX(-50%) rotate(-70deg); }
+        .leaf--5 { transform: translateX(-50%) rotate(30deg); }
+        .leaf--6 { transform: translateX(-50%) rotate(50deg); }
+        .leaf--7 { transform: translateX(-50%) rotate(70deg); }
+
+        .flower-pp--2 .leaf:not(:first-child) {
+            background-image: linear-gradient(to bottom, #ff66cc, #cc3399, #2a1e3a 99%);
+        }
+
+        .flower-pp--3 .leaf:not(:first-child) {
+            background-image: linear-gradient(to bottom, #9966ff, #6633cc, #2a1e3a 99%);
+        }
+
+        .flower-pp--4 .leaf:not(:first-child) {
+            background-image: linear-gradient(to bottom, #66ccff, #3399cc, #2a1e3a 99%);
+        }
+
+        .flower-pp--5 .leaf:not(:first-child) {
+            background-image: linear-gradient(to bottom, #ffaa33, #ff7711, #2a1e3a 99%);
+        }
+
+        .leaf--8 {
+            width: 13vmin;
+            height: 11vmin;
+            bottom: 6vmin;
+            left: -30%;
+            border-radius: 10vmin 2vmin 10vmin 2vmin;
+            transform: rotate(-55deg);
+        }
+
+        .flower-pp .leaf--8 {
+            background-image: linear-gradient(to left bottom, #ffd700, #ffaa00);
+        }
+
+        .flower-pp--2 .leaf--8 {
+            background-image: linear-gradient(to left bottom, #ff66cc, #cc0066);
+        }
+
+        .flower-pp--3 .leaf--8 {
+            left: -10%;
+            background-image: linear-gradient(to left bottom, #9966ff, #6600cc);
+        }
+
+        .flower-pp--4 .leaf--8 {
+            background-image: linear-gradient(to left bottom, #66ccff, #0066cc);
+        }
+
+        .flower-pp--5 .leaf--8 {
+            background-image: linear-gradient(to left bottom, #ffaa33, #cc5500);
+        }
+
+        .flower__fall-down--yellow {
+            animation: flower-fall-down-yellow 8s 1.2s linear forwards;
+        }
+
+        .flower__fall-down--pink {
+            animation: flower-fall-down-pink 5s 1.2s linear forwards;
+        }
+
+        .flower__fall-down--purple {
+            bottom: 4vmin;
+            animation: flower-fall-down-purple 6s 1.2s linear forwards, flower-falling 6s 7.2s linear infinite;
+        }
+
+        .flower__fall-down--blue {
+            animation: flower-fall-down-blue 7s 1.5s linear forwards;
+        }
+
+        .flower__fall-down--orange {
+            animation: flower-fall-down-orange 6s 1.3s linear forwards;
+        }
+
+        /* Gift Box Styles */
+        .gift-box {
+            position: relative;
+            transform: translateX(-50%);
+            width: 17vmin;
+            height: 11vmin;
+            background: linear-gradient(45deg, #ff4444, #ff8787);
+            border-radius: 1vmin;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .gift-box:hover {
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        .gift-box::before {
+            content: '';
+            position: absolute;
+            width: 2vmin;
+            height: 11vmin;
+            background: #ffd700;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 1vmin;
+        }
+
+        .gift-box::after {
+            content: '';
+            position: absolute;
+            width: 10vmin;
+            height: 2vmin;
+            background: #ffd700;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 1vmin;
+        }
+
+        .message {
+            position: absolute;
+            bottom: 36vmin;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2vmin;
+            border-radius: 1vmin;
+            font-size: 3vmin;
+            color: #333;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes open-flower {
+            0% { transform: translateX(-50%) rotate(0); }
+        }
+
+        @keyframes open-flowe--middle {
+            0% { opacity: 0; transform: translateX(-50%) scale(0); }
+        }
+
+        @keyframes flower-fall-down-pink {
+            0% { transform: rotate(-55deg); }
+            50% { transform: rotateX(-100deg); }
+            100% { transform: translate(2vmin, 28vmin); }
+        }
+
+        @keyframes flower-fall-down-yellow {
+            0% { transform: rotate(-55deg); }
+            50% { bottom: 3vmin; transform: rotateX(-100deg); }
+            100% { transform: translate(2vmin, 70vmin) rotate(150deg); }
+        }
+
+        @keyframes flower-fall-down-purple {
+            0% { transform: rotate(-50deg); }
+            25% { bottom: 1vmin; transform: rotateX(-100deg); }
+            50% { transform: translate(-30vmin, 2vmin) rotate(90deg); }
+            75% { transform: translate(-34vmin, -2vmin); }
+            100% { transform-origin: center; transform: translate(-34vmin, -2vmin) rotateY(-80deg) rotateX(35deg); }
+        }
+
+        @keyframes flower-fall-down-blue {
+            0% { transform: rotate(-55deg); }
+            50% { transform: rotateX(-90deg); }
+            100% { transform: translate(-20vmin, 60vmin) rotate(120deg); }
+        }
+
+        @keyframes flower-fall-down-orange {
+            0% { transform: rotate(-55deg); }
+            50% { transform: rotateX(-110deg); }
+            100% { transform: translate(15vmin, 50vmin) rotate(180deg); }
+        }
+
+        @keyframes flower-falling {
+            0%, 100% { transform-origin: center; transform: translate(-34vmin, -2vmin) rotateY(-80deg) rotateX(35deg); }
+            25% { transform: translate(-34.4vmin, -2vmin) rotateY(-84deg) rotateX(35deg); }
+            50% { transform: translate(-32vmin, -4.2vmin) rotateY(-80deg) rotateX(35deg); }
+            75% { transform: translate(-36vmin, 1.1vmin) rotateY(-80deg) rotateX(35deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+        <h4>To my dearest <em>Aarya</em></h4>
+        <div class="gift-box" onclick="showMessage()"></div>
+
+        </div>
+        <div class="flower">
+            <div class="flower-pp">
+                <div class="flower_l"></div>
+                <div class="f">
+                    <div class="leaf leaf--1"></div>
+                    <div class="leaf leaf--2"></div>
+                    <div class="leaf leaf--3"></div>
+                    <div class="leaf leaf--4"></div>
+                    <div class="leaf leaf--5"></div>
+                    <div class="leaf leaf--6"></div>
+                    <div class="leaf leaf--7"></div>
+                    <div class="leaf leaf--8 flower__fall-down--yellow"></div>
+                </div>
+            </div>
+
+            <div class="flower-pp flower-pp--2">
+                <div class="flower_l"></div>
+                <div class="f">
+                    <div class="leaf leaf--1"></div>
+                    <div class="leaf leaf--2"></div>
+                    <div class="leaf leaf--3"></div>
+                    <div class="leaf leaf--4"></div>
+                    <div class="leaf leaf--5"></div>
+                    <div class="leaf leaf--6"></div>
+                    <div class="leaf leaf--7"></div>
+                    <div class="leaf leaf--8 flower__fall-down--pink"></div>
+                </div>
+            </div>
+
+            <div class="flower-pp flower-pp--3">
+                <div class="flower_l"></div>
+                <div class="f">
+                    <div class="leaf leaf--1"></div>
+                    <div class="leaf leaf--2"></div>
+                    <div class="leaf leaf--3"></div>
+                    <div class="leaf leaf--4"></div>
+                    <div class="leaf leaf--5"></div>
+                    <div class="leaf leaf--6"></div>
+                    <div class="leaf leaf--7"></div>
+                    <div class="leaf leaf--8 flower__fall-down--purple"></div>
+                </div>
+            </div>
+
+            <div class="flower-pp flower-pp--4">
+                <div class="flower_l"></div>
+                <div class="f">
+                    <div class="leaf leaf--1"></div>
+                    <div class="leaf leaf--2"></div>
+                    <div class="leaf leaf--3"></div>
+                    <div class="leaf leaf--4"></div>
+                    <div class="leaf leaf--5"></div>
+                    <div class="leaf leaf--6"></div>
+                    <div class="leaf leaf--7"></div>
+                    <div class="leaf leaf--8 flower__fall-down--blue"></div>
+                </div>
+            </div>
+
+            <div class="flower-pp flower-pp--5">
+                <div class="flower_l"></div>
+                <div class="f">
+                    <div class="leaf leaf--1"></div>
+                    <div class="leaf leaf--2"></div>
+                    <div class="leaf leaf--3"></div>
+                    <div class="leaf leaf--4"></div>
+                    <div class="leaf leaf--5"></div>
+                    <div class="leaf leaf--6"></div>
+                    <div class="leaf leaf--7"></div>
+                    <div class="leaf leaf--8 flower__fall-down--orange"></div>
+                </div>
+            </div>
+
+            <div class="flower__pot"></div>
+            <div class="message" id="giftMessage">
+                You deserve the world! And your boyfriend loves you a lot.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showMessage() {
+            const message = document.getElementById('giftMessage');
+            message.style.display = 'block';
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 5000); // Message disappears after 5 seconds
+        }
+    </script>
+</body>
+</html>
