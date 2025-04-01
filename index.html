@@ -190,7 +190,16 @@
             height: 56vmin;
             background-image: linear-gradient(to left top, #82fdff 20%, #1a3c6e, #156565);
             border-radius: 4vmin;
+            transform-origin: bottom center;
+            transform: scaleY(0);
+            animation: growStem 3s ease-out forwards;
+            animation-fill-mode: both;
         }
+
+        .flower-pp--2 .flower_l { animation-delay: 0.3s; }
+        .flower-pp--3 .flower_l { animation-delay: 0.6s; }
+        .flower-pp--4 .flower_l { animation-delay: 0.9s; }
+        .flower-pp--5 .flower_l { animation-delay: 0.11s; }
 
         .f {
             position: absolute;
@@ -199,7 +208,14 @@
             transform: translateX(-50%) rotate(-10deg);
             width: 2vmin;
             height: 2vmin;
+            opacity: 0;
+            animation: showPetals 0s 2s forwards;
         }
+
+        .flower-pp--2 .f { animation-delay: 2.4s; }
+        .flower-pp--3 .f { animation-delay: 2.8s; }
+        .flower-pp--4 .f { animation-delay: 2.10s; }
+        .flower-pp--5 .f { animation-delay: 2.12s; }
 
         .leaf {
             position: absolute;
@@ -211,8 +227,14 @@
             background-image: linear-gradient(to bottom, #ffcc70, #ff8c5a, #2a1e3a 99%);
             clip-path: ellipse(50% 50% at 50% 50%);
             transform-origin: center bottom;
-            animation: open-flower 2s 1s backwards;
+            animation: growPetals 2s ease-out backwards;
         }
+
+        .flower-pp .leaf { animation-delay: 2s; }
+        .flower-pp--2 .leaf { animation-delay: 2.4s; }
+        .flower-pp--3 .leaf { animation-delay: 2.6s; }
+        .flower-pp--4 .leaf { animation-delay: 2.8s; }
+        .flower-pp--5 .leaf { animation-delay: 2.10s; }
 
         .leaf--1 {
             width: 10vmin;
@@ -220,8 +242,14 @@
             bottom: 3vmin;
             border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
             background-image: linear-gradient(to bottom, #ff6f61, #e63946);
-            animation: open-flowe--middle 1.4s 1s backwards;
+            animation: growPetalsMiddle 2s ease-out backwards;
         }
+
+        .flower-pp .leaf--1 { animation-delay: 2s; }
+        .flower-pp--2 .leaf--1 { animation-delay: 2.4s; }
+        .flower-pp--3 .leaf--1 { animation-delay: 2.6s; }
+        .flower-pp--4 .leaf--1 { animation-delay: 2.8s; }
+        .flower-pp--5 .leaf--1 { animation-delay: 2.10s; }
 
         .leaf--2 { transform: translateX(-50%) rotate(-30deg); }
         .leaf--3 { transform: translateX(-50%) rotate(-50deg); }
@@ -277,24 +305,24 @@
         }
 
         .flower__fall-down--yellow {
-            animation: flower-fall-down-yellow 8s 1.2s linear forwards;
+            animation: flower-fall-down-yellow 8s 3.2s linear forwards;
         }
 
         .flower__fall-down--pink {
-            animation: flower-fall-down-pink 5s 1.2s linear forwards;
+            animation: flower-fall-down-pink 5s 3.2s linear forwards;
         }
 
         .flower__fall-down--purple {
             bottom: 4vmin;
-            animation: flower-fall-down-purple 6s 1.2s linear forwards, flower-falling 6s 7.2s linear infinite;
+            animation: flower-fall-down-purple 6s 3.2s linear forwards, flower-falling 6s 9.2s linear infinite;
         }
 
         .flower__fall-down--blue {
-            animation: flower-fall-down-blue 7s 1.5s linear forwards;
+            animation: flower-fall-down-blue 7s 3.5s linear forwards;
         }
 
         .flower__fall-down--orange {
-            animation: flower-fall-down-orange 6s 1.3s linear forwards;
+            animation: flower-fall-down-orange 6s 3.3s linear forwards;
         }
 
         /* Gift Box Styles */
@@ -358,12 +386,24 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes open-flower {
-            0% { transform: translateX(-50%) rotate(0); }
+        @keyframes growStem {
+            0% { transform: scaleY(0); }
+            100% { transform: scaleY(1); }
         }
 
-        @keyframes open-flowe--middle {
-            0% { opacity: 0; transform: translateX(-50%) scale(0); }
+        @keyframes showPetals {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes growPetals {
+            0% { transform: translateX(-50%) scale(0); }
+            100% { transform: translateX(-50%) rotate(0); }
+        }
+
+        @keyframes growPetalsMiddle {
+            0% { transform: translateX(-50%) scale(0); }
+            100% { transform: translateX(-50%); }
         }
 
         @keyframes flower-fall-down-pink {
@@ -411,7 +451,6 @@
         <div class="title">
         <h4>To my dearest <em>Aarya</em></h4>
         <div class="gift-box" onclick="showMessage()"></div>
-
         </div>
         <div class="flower">
             <div class="flower-pp">
@@ -500,5 +539,5 @@
             }, 5000); // Message disappears after 5 seconds
         }
     </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9299003bba8c824e',t:'MTc0MzUyMDA5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
